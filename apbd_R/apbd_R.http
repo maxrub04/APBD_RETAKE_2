@@ -1,23 +1,18 @@
 @host = http://localhost:5243
 
 
-### ------------------------------------------------------------
 ### 1. GET – character exists → 200
-### ------------------------------------------------------------
 GET {{host}}/api/characters/1
 Accept: application/json
 
 
-### ------------------------------------------------------------
 ### 2. GET – character not found → 404
-### ------------------------------------------------------------
 GET {{host}}/api/characters/999
 Accept: application/json
 
 
-### ------------------------------------------------------------
+
 ### 3. POST – happy path → 201
-### ------------------------------------------------------------
 POST {{host}}/api/characters/1/backpacks
 Content-Type: application/json
 
@@ -25,9 +20,7 @@ Content-Type: application/json
   "ItemIds": [1, 2]
 }
 
-### ------------------------------------------------------------
 ### 4. POST – item was not found → 404
-### ------------------------------------------------------------
 POST {{host}}/api/characters/1/backpacks
 Content-Type: application/json
 
@@ -35,9 +28,7 @@ Content-Type: application/json
   "ItemIds": [1, 99]
 }
 
-### ------------------------------------------------------------
 ### 5. POST – validation error (empty list) → 400
-### ------------------------------------------------------------
 POST {{host}}/api/characters/1/backpacks
 Content-Type: application/json
 
